@@ -1,6 +1,8 @@
 'use-strict'
 
 const takedownPoints = 2
+const passPoints = 1
+const backTakePoints = 4
 
 var connection = new signalR.HubConnectionBuilder().withUrl('/scoringHub').build()
 
@@ -12,16 +14,17 @@ connection.start()
         return console.error(err.toString())
     })
 
-connection.on('ReceiveMessage', (updatedPoints) => {
-    document.getElementById('pointsOne').innerHTML = updatedPoints
+//update fighrt one points
+connection.on('RecieveUpdatedPointsFighterOne', (updatedPoints) => {
+    document.getElementById('pointsFighterOne').innerHTML = updatedPoints
 })
 
-//takedown
-document.getElementById('takedownOne').addEventListener('click', (event) => {
-    var currentPoints = parseInt(document.getElementById('pointsOne').innerHTML,10)
+//takedown figter one 
+document.getElementById('takedownFighterOne').addEventListener('click', (event) => {
+    var currentPoints = parseInt(document.getElementById('pointsFighterOne').innerHTML, 10)
     console.log(currentPoints)
 
-    connection.invoke('SendMessage', currentPoints, takedownPoints)
+    connection.invoke('UpdatePointsFighterOne', currentPoints, takedownPoints)
         .catch((err) => {
             return console.error(err)
         })
