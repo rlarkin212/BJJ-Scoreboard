@@ -1,0 +1,52 @@
+@{
+    ViewData["Title"] = "Scoreboard";
+    @model MatchModel
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 points">
+                <div>
+                    <h2 class="">Points</h2>
+                    <p id="pointsFighterOne" class="">@Model.ScoringFighterOne.Points</p>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 pull-left">
+                        <p class="font-weight-bold">Advantages</p>
+                        <p id=advantagesFighterOne>@Model.ScoringFighterOne.Advantages</p>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-md-4 pull-right">
+                        <p class="font-weight-bold">Penalties</p>
+                      <p id=penaltiesFighterOne>@Model.ScoringFighterOne.Penalties</p>
+                    </div>
+                </div>
+                
+        </div>
+
+        <div class="col-md-8">
+            <h2>@Model.FighterOne.Name</h2>
+            <p>@Model.FighterOne.Club</p>
+            <div class="row">
+                <div class="col-md-4">
+                    <input class="btn btn-primary" type="button" id="takedownFighterOne" value="Takedown" />
+                </div>
+                <div class="col-md-4">
+                    <input class="btn btn-primary" type="button" id="" value="Guard Pass" />
+                </div>
+                <div class="col-md-4">
+                    <input class="btn btn-primary" type="button" id="" value="Back Take" />
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-4">
+                    <input class="btn btn-success" type="button" id="" value="Advantage" />
+                </div>
+                <div class="col-md-4">
+                    <input class="btn btn-danger" type="button" id="" value="Penalty" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
