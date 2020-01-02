@@ -14,4 +14,4 @@ jobs:
       with:
         dotnet-version: 3.0.100
     - name: Build with dotnet
-      run: dotnet build BJJ-Scoreboard --configuration Release
+      run: dotnet build BJJ_Scoreboard.csproj --configuration Release
